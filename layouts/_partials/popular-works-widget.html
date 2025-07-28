@@ -1,0 +1,47 @@
+{{ partial "head.html" . }}
+<div class="container-recent-works">
+  <div class="recent-works-title-test text-center">Impactful Works</div>
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {{ $researchers := .Site.Home.Params.researchers }}
+    {{ $allWorks := slice }}
+
+    {{ if $researchers }}
+    {{ range $researchers }}
+    {{ $researcher := . }}
+    {{ range .recent_works }}
+    {{ $work := . }}
+    {{ $allWorks = $allWorks | append (dict
+    "title" $work.title
+    "publication_date" $work.publication_date
+    "researcher" $researcher.name
+    "link_to_pdf" $work.link_to_pdf
+    "source" $work.source
+    "cited_by_count" $work.cited_by_count
+    ) }}
+    {{ end }}
+    {{ end }}
+
+    {{ $sortedWorks := sort $allWorks "cited_by_count" "desc" }}
+
+    {{ range first 6 $sortedWorks }}
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ .title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            {{ .publication_date }} &mdash; {{ .researcher }} <br> {{ .source }}
+          </h6>
+          {{ if .link_to_pdf }}
+          <a href="{{ .link_to_pdf }}" class="btn btn-sm btn-outline-primary mt-2" target="_blank" rel="noopener">
+            READ
+          </a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+    {{ end }}
+    {{ else }}
+    <p>No researcher data found in front matter.</p>
+    {{ end }}
+  </div>
+</div>
