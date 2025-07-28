@@ -1,5 +1,6 @@
 {{ define "main" }}
 <h1>{{ .Site.Title }}</h1>
+{{ partial "quick-stats-widget.html" . }}
 {{ partial "recent-works-widget.html" . }}
 {{ partial "popular-works-widget.html" . }}
 {{ end }}

@@ -1,0 +1,46 @@
+{{/*
+Calculates the group h-index from researchers' recent_works[].cited_by_count.
+Usage: {{ partial "group-hindex.html" . }}
+Debug: Outputs cited_by_count for each work.
+*/}}
+
+{{ $researchers := .Params.researchers }}
+{{ $allCitations := slice }}
+
+{{ if $researchers }}
+<div>
+  <ul>
+    {{ range $researchers }}
+    {{ range .recent_works }}
+    {{ $c := .cited_by_count }}
+    {{ if (or (eq (printf "%T" $c) "int") (eq (printf "%T" $c) "float64")) }}
+    {{ $allCitations = $allCitations | append $c }}
+    {{ else if (and $c (ne $c nil) (ne $c "null")) }}
+    {{ $allCitations = $allCitations | append (int $c) }}
+    {{ end }}
+    {{ end }}
+    {{ end }}
+  </ul>
+</div>
+
+{{ $sortedAsc := sort $allCitations }}
+{{ $sorted := slice }}
+{{ range $i, $v := $sortedAsc }}
+{{ $sorted = $sorted | append (index $sortedAsc (sub (sub (len $sortedAsc) 1) $i)) }}
+{{ end }}
+{{ $h := 0 }}
+{{ range $i, $c := $sorted }}
+{{ $rank := add $i 1 }}
+{{ if ge $c $rank }}
+{{ $h = $rank }}
+{{ end }}
+{{ end }}
+
+<div class="group-hindex">
+  <strong>Group h-index:</strong> {{ $h }}
+</div>
+{{ else }}
+<div class="group-hindex">
+  <em>No researcher data found.</em>
+</div>
+{{ end }}
