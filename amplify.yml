@@ -1,0 +1,20 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - echo "Pre-build phase"
+    build:
+      commands:
+        - hugo
+  artifacts:
+    baseDirectory: public
+    files:
+      - '**/*'
+  cache:
+    paths: []
+
+  # Set the desired Hugo version here
+  buildSettings:
+    framework: hugo
+    hugoVersion: 0.148.1
