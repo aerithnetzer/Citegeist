@@ -13,7 +13,12 @@ def get_recent_works(openalex_id, per_page=5):
     }
     response = requests.get(OPENALEX_API_URL, params=params)
     response.raise_for_status()
-    return response.json().get("results", [])
+    data = response.json()
+    if not isinstance(data, dict) or "results" not in data:
+        print("Unexpected API response:", data)
+        return []
+    print(data.keys())
+    return data.get("results", [])
 
 
 def write_yaml_data_to_home(researchers_data):
@@ -39,6 +44,9 @@ def main(yaml_path):
         print(f"Recent works for {name} (OpenAlex ID: {openalex_id}):")
         try:
             works = get_recent_works(openalex_id)
+            if not works:
+                print(f"  No works found for {name}.")
+                continue
             researchers_data.append(
                 {
                     "name": name,
@@ -50,10 +58,14 @@ def main(yaml_path):
                             "link_to_pdf": work["primary_location"].get(
                                 "pdf_url", None
                             ),
-                            "source": work["primary_location"]["source"].get(
-                                "display_name", None
-                            ),
+                            "source": (
+                                work.get("primary_location", {}).get("source") or {}
+                            ).get("display_name", None),
                             "cited_by_count": work.get("cited_by_count", 0),
+                            "authors": [
+                                author.get("author", {}).get("display_name", "Unknown")
+                                for author in work.get("authorships", [])
+                            ],
                         }
                         for work in works
                     ],
@@ -64,7 +76,10 @@ def main(yaml_path):
                 pub_date = work.get("publication_date", "No date")
                 print(f"  - {title} ({pub_date})")
         except Exception as e:
+            import traceback
+
             print(f"  Error fetching works: {e}")
+            traceback.print_exc()
         print()
     write_yaml_data_to_home(researchers_data)
 

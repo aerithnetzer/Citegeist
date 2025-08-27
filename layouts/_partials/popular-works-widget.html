@@ -1,19 +1,22 @@
 {{ partial "head.html" . }}
-<div class="container-recent-works">
+<div class="container-impactful-works">
   <div class="recent-works-title-test text-center">Impactful Works</div>
   <div class="row row-cols-1 row-cols-md-2 g-4">
-    {{ $researchers := .Site.Home.Params.researchers }}
+    {{ $researcherNames := slice }}
+    {{ range .Site.Home.Params.researchers }}
+    {{ $researcherNames = $researcherNames | append .name }}
+    {{ end }}
     {{ $allWorks := slice }}
 
-    {{ if $researchers }}
-    {{ range $researchers }}
+    {{ with .Site.Home.Params.researchers }}
+    {{ range . }}
     {{ $researcher := . }}
-    {{ range .recent_works }}
+    {{ range $researcher.recent_works }}
     {{ $work := . }}
     {{ $allWorks = $allWorks | append (dict
     "title" $work.title
     "publication_date" $work.publication_date
-    "researcher" $researcher.name
+    "authors" (or $work.authors (slice))
     "link_to_pdf" $work.link_to_pdf
     "source" $work.source
     "cited_by_count" $work.cited_by_count
@@ -29,7 +32,20 @@
         <div class="card-body">
           <h5 class="card-title">{{ .title }}</h5>
           <h6 class="card-subtitle mb-2 text-muted">
-            {{ .publication_date }} &mdash; {{ .researcher }} <br> {{ .source }}
+            {{ .publication_date }} &mdash;
+            {{ with .authors }}
+            {{ $authors := . }}
+            {{ range $i, $author := $authors -}}
+            {{- $isResearcher := in $researcherNames $author -}}
+            {{- $slug := replace (lower $author) " " "-" -}}
+            {{- if $isResearcher -}}
+            <a href="/researchers/{{ $slug }}" class="highlight-purple">{{ $author }}</a>
+            {{- else -}}
+            {{ $author }}
+            {{- end -}}
+            {{ if lt $i (sub (len $authors) 1) }}, {{ end -}}
+            {{- end }}
+            {{ end }}
           </h6>
           {{ if .link_to_pdf }}
           <a href="{{ .link_to_pdf }}" class="btn btn-sm btn-outline-primary mt-2" target="_blank" rel="noopener">

@@ -38,3 +38,8 @@ body {
   font-size: 1rem;
   color: #6c757d;
 }
+
+.highlight-purple {
+  color: #4F46E5;
+  font-weight: bold;
+}

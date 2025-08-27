@@ -1,0 +1,11 @@
+{{ define "main" }}
+<article class="author-profile">
+  <header>
+    <h1>{{ .Title }}</h1>
+    <p class="author-date">{{ .Date.Format "January 2, 2006" }}</p>
+  </header>
+  <section class="author-content">
+    {{ .Content }}
+  </section>
+</article>
+{{ end }}
