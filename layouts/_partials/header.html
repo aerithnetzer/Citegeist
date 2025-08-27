@@ -1,10 +1,65 @@
-<header>
+<header style="position: sticky; top: 0; z-index: 2000; background: #fff;">
   <h1 class="site-title"><em>{{ .Site.Title }}</em></h1>
   <nav class="main-nav">
-    <ul style="display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0;">
+    <button id="nav-toggle" aria-label="Toggle navigation" style="background:none;border:none;font-size:2rem;">
+      &#9776;
+    </button>
+    <ul id="nav-menu">
       {{ range .Site.Menus.main }}
       <li><a href="{{ .URL }}">{{ .Name }}</a></li>
       {{ end }}
     </ul>
   </nav>
+  <script>
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+  </script>
+  <style>
+    /* --- Default (desktop) --- */
+    #nav-toggle {
+      display: none;
+    }
+
+    #nav-menu {
+      display: flex;
+      gap: 1rem;
+    }
+
+    /* --- Mobile (<=600px) --- */
+    @media (max-width: 600px) {
+      #nav-toggle {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 1000;
+      }
+
+      #nav-menu {
+        overflow: hidden;
+        max-height: 0;
+        flex-direction: column;
+        gap: 0;
+        background: #fff;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: max-height 0.3s ease;
+      }
+
+      #nav-menu.show {
+        max-height: 500px;
+        /* enough to fit all links */
+      }
+
+      .main-nav {
+        position: relative;
+      }
+    }
+  </style>
 </header>
