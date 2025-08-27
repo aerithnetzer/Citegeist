@@ -1,6 +1,10 @@
 ---
-title: Dieyun Song
+layout: author-profile
+slug: dieyun-song
+name: Dieyun Song
 openalex_id: A5000018975
+bio: Dieyun Song is the Research Data Management Librarian for the research team.
+  If she was a cat I think she would be a Birman cat.
 recent_works:
 - title: 'Digital Narratives of COVID-19: A Twitter Dataset for Text Analysis in Spanish'
   publication_date: '2021-01-01'
@@ -59,8 +63,4 @@ recent_works:
   cited_by_count: 0
   authors:
   - Dieyun Song
-draft: false
-layout: author-profile
 ---
-
-Dieyun Song is a researcher.

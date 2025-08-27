@@ -1,6 +1,10 @@
 ---
-title: Aihan Liu
+layout: author-profile
+slug: aihan-liu
+name: Aihan Liu
 openalex_id: A5050896969
+bio: Aihan Liu is the Data Scientist for the research team. If she was a cat I think
+  she would be a snowshoe cat.
 recent_works:
 - title: "Inferring \u201Chigh-frequent\u201D mixed urban functions from telecom traffic"
   publication_date: '2023-12-11'
@@ -78,8 +82,4 @@ recent_works:
   - Yun Zhang
   - Liu Liu
   - Yu Liu
-draft: false
-layout: author-profile
 ---
-
-Aihan Liu is a researcher.

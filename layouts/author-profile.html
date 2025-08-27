@@ -3,7 +3,7 @@
 <div style="display: flex; align-items: flex-start; gap: 2rem;">
   <div
     style="min-width: 180px; max-width: 220px; background: #f5f5f5; border-radius: 12px; padding: 1rem; text-align: center;">
-    {{ $img := printf "/images/authors/%s.png" (replace (lower .Title) " " "-") }}
+    {{ $img := printf "/images/authors/%s.png" .Params.slug }}
     <img src="{{ $img }}" alt="{{ .Title }}" style="width: 100%; border-radius: 8px;">
     <h2 style="margin-top: 1rem;">{{ .Title }}</h2>
   </div>

@@ -1,3 +1,38 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'CiteGeist'
+title = "Northwestern University Libraries' Digital Scholarship Research Team's CiteGeist"
+
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "About"
+url = "https://www.library.northwestern.edu/use-the-libraries/research-teaching/digital-scholarship/"
+weight = 2
+
+[[menu.main]]
+name = "Team"
+url = "/researchers/"
+weight = 3
+
+[[menu.main]]
+name = "The Cool Zone"
+url = "/coauthors/"
+weight = 4
+
+# [[menu.main]]
+# name = "Publications"
+# url = "/publications/"
+# weight = 5
+#
+# [[menu.main]]
+# name = "Blog"
+# url = "/blog/"
+# weight = 6
+#
+# [[menu.main]]
+# name = "Contact"
+# url = "/contact/"
+# weight = 7

@@ -1,6 +1,10 @@
 ---
-title: Kelsey Rydland
+layout: author-profile
+slug: kelsey-rydland
+name: Kelsey Rydland
 openalex_id: A5004787361
+bio: Kelsey Rydland is the head of Academic Innovation and Digital Scholarship? If
+  he was a cat I think he would be a Russian Blue cat.
 recent_works:
 - title: Area Poverty and Adverse Birth Outcomes
   publication_date: '2024-12-12'
@@ -247,8 +251,39 @@ recent_works:
   cited_by_count: 0
   authors:
   - Kelsey Rydland
-draft: false
-layout: author-profile
+- title: 'Research Guides: Map & Large Format Document Scanning: Other Scanning Options'
+  publication_date: '2013-11-06'
+  link_to_pdf: null
+  source: null
+  cited_by_count: 0
+  authors:
+  - Kelsey Rydland
+- title: 'Research Guides: Map & Atlas Collections: Nautical Charts'
+  publication_date: '2010-07-16'
+  link_to_pdf: null
+  source: null
+  cited_by_count: 0
+  authors:
+  - Kelsey Rydland
+- title: 'Research Guides: Map & Atlas Collections: Quick Maps & Apps'
+  publication_date: '2010-07-16'
+  link_to_pdf: null
+  source: null
+  cited_by_count: 0
+  authors:
+  - Kelsey Rydland
+- title: 'Research Guides: Map & Atlas Collections: Map Offers & Discards'
+  publication_date: '2010-07-16'
+  link_to_pdf: null
+  source: null
+  cited_by_count: 0
+  authors:
+  - Kelsey Rydland
+- title: 'Research Guides: Map & Atlas Collections: Scanning Services'
+  publication_date: '2010-07-16'
+  link_to_pdf: null
+  source: null
+  cited_by_count: 0
+  authors:
+  - Kelsey Rydland
 ---
-
-Kelsey Rydland is a researcher.

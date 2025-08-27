@@ -1,0 +1,17 @@
+{{ define "main" }}
+{{ partial "header.html" . }}
+<h1 class="section-title">{{ .Title }}</h1>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem;">
+  {{ range .Pages }}
+  <a href="{{ .RelPermalink }}" style="text-decoration: none; color: inherit;">
+    <div style="background: #f5f5f5; border-radius: 12px; padding: 1rem; text-align: center;">
+      {{ $img := printf "/images/authors/%s.png" .Params.slug }}
+      <img src="{{ $img }}" alt="{{ .Params.name }}"
+        style="width: 160px; height: 160px; object-fit: cover; border-radius: 8px;">
+      <h2 style="margin-top: 1rem; font-size: 1.1rem;">{{ .Params.name }}</h2>
+      <p style="margin-top: 0.5rem; font-size: 0.95rem; color: #555;">{{ .Params.bio }}</p>
+    </div>
+  </a>
+  {{ end }}
+</div>
+{{ end }}

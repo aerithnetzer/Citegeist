@@ -1,6 +1,10 @@
 ---
-title: Mech Frazier
+layout: author-profile
+slug: mech-frazier
+name: Mech Frazier
 openalex_id: A5108440202
+bio: Mech Frazier is the GIS Specialist for the research team. If she was a cat I
+  think she would be a Norwegian Forest cat.
 recent_works:
 - title: 'Assessing Neonatal Intensive Care Unit (NICU) Graduates Across Varied Settings:
     A Study on the Feasibility of the Baby Moves App'
@@ -33,8 +37,4 @@ recent_works:
   - Mech Frazier
   - Charles W. McCluggage
   - Sharon E. Plon
-draft: false
-layout: author-profile
 ---
-
-Mech Frazier is a researcher.

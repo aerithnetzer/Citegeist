@@ -9326,3 +9326,38 @@ textarea.form-control-lg {
   height: 150px;
   object-fit: cover;
   margin-bottom: 1rem; }
+
+.site-title {
+  color: #4E2A84;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 2rem;
+  margin-bottom: 2rem; }
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem; }
+  .main-nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+  .main-nav a {
+    color: #333;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background 0.2s; }
+    .main-nav a:hover {
+      background: #e0e0e0; }
+
+.section-title {
+  color: #4E2A84;
+  text-align: center;
+  margin: 2rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600; }

@@ -49,3 +49,47 @@ $prefix: "mo-";
     margin-bottom: 1rem;
   }
 }
+
+.site-title {
+  color: $primary;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+
+  ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  a {
+    color: #333;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #e0e0e0;
+    }
+  }
+}
+
+.section-title {
+  color: $primary;
+  text-align: center;
+  margin: 2rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
