@@ -1,11 +1,16 @@
 {{ define "main" }}
-<article class="author-profile">
-  <header>
-    <h1>{{ .Title }}</h1>
-    <p class="author-date">{{ .Date.Format "January 2, 2006" }}</p>
-  </header>
-  <section class="author-content">
-    {{ .Content }}
-  </section>
-</article>
+{{ partial "head.html" .}}
+<div style="display: flex; align-items: flex-start; gap: 2rem;">
+  <div
+    style="min-width: 180px; max-width: 220px; background: #f5f5f5; border-radius: 12px; padding: 1rem; text-align: center;">
+    {{ $img := printf "/images/authors/%s.png" (replace (lower .Title) " " "-") }}
+    <img src="{{ $img }}" alt="{{ .Title }}" style="width: 100%; border-radius: 8px;">
+    <h2 style="margin-top: 1rem;">{{ .Title }}</h2>
+  </div>
+  <div style="flex: 1;">
+    <p>{{ .Content }}</p>
+    {{ partial "author-works.html" . }}
+  </div>
+</div>
+
 {{ end }}

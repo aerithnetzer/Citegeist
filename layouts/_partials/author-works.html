@@ -1,0 +1,15 @@
+<h3>Recent Works</h3>
+<ul>
+  {{ with .Params.recent_works }}
+  {{ range . }}
+  <li>
+    <a href="{{ .link_to_pdf }}">{{ .title }}</a>
+    <span style="color: #888;">({{ .publication_date }})</span>
+    {{ with .source }}<span> — {{ . }}</span>{{ end }}
+    <span style="color: #888;">Citations: {{ .cited_by_count }}</span>
+    <br>
+    <small>Authors: {{ delimit .authors ", " }}</small>
+  </li>
+  {{ end }}
+  {{ end }}
+</ul>

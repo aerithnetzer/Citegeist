@@ -5,7 +5,23 @@ import sys
 OPENALEX_API_URL = "https://api.openalex.org/works"
 
 
-def get_recent_works(openalex_id, per_page=5):
+def write_researcher_md(researcher):
+    filename = f"content/researchers/{researcher['name'].lower().replace(' ', '-')}.md"
+    frontmatter = {
+        "title": researcher["name"],
+        "openalex_id": researcher["openalex_id"],
+        "recent_works": researcher["recent_works"],
+        "draft": False,
+        "layout": "author-profile",
+    }
+    with open(filename, "w") as f:
+        f.write("---\n")
+        yaml.dump(frontmatter, f, sort_keys=False)
+        f.write("---\n\n")
+        f.write(f"{researcher['name']} is a researcher.\n")
+
+
+def get_recent_works(openalex_id, per_page=50):
     params = {
         "filter": f"author.id:https://openalex.org/{openalex_id}",
         "sort": "publication_date:desc",
@@ -47,41 +63,30 @@ def main(yaml_path):
             if not works:
                 print(f"  No works found for {name}.")
                 continue
-            researchers_data.append(
-                {
-                    "name": name,
-                    "openalex_id": openalex_id,
-                    "recent_works": [
-                        {
-                            "title": work.get("title", "No title"),
-                            "publication_date": work.get("publication_date", "No date"),
-                            "link_to_pdf": work["primary_location"].get(
-                                "pdf_url", None
-                            ),
-                            "source": (
-                                work.get("primary_location", {}).get("source") or {}
-                            ).get("display_name", None),
-                            "cited_by_count": work.get("cited_by_count", 0),
-                            "authors": [
-                                author.get("author", {}).get("display_name", "Unknown")
-                                for author in work.get("authorships", [])
-                            ],
-                        }
-                        for work in works
-                    ],
-                }
-            )
-            for work in works:
-                title = work.get("title", "No title")
-                pub_date = work.get("publication_date", "No date")
-                print(f"  - {title} ({pub_date})")
-        except Exception as e:
-            import traceback
-
-            print(f"  Error fetching works: {e}")
-            traceback.print_exc()
-        print()
-    write_yaml_data_to_home(researchers_data)
+            researcher_record = {
+                "name": name,
+                "openalex_id": openalex_id,
+                "recent_works": [
+                    {
+                        "title": work.get("title", "No title"),
+                        "publication_date": work.get("publication_date", "No date"),
+                        "link_to_pdf": work["primary_location"].get("pdf_url", None),
+                        "source": (
+                            work.get("primary_location", {}).get("source") or {}
+                        ).get("display_name", None),
+                        "cited_by_count": work.get("cited_by_count", 0),
+                        "authors": [
+                            author.get("author", {}).get("display_name", "Unknown")
+                            for author in work.get("authorships", [])
+                        ],
+                    }
+                    for work in works
+                ],
+            }
+            researchers_data.append(researcher_record)
+            write_researcher_md(researcher_record)
+        except requests.RequestException as e:
+            print(f"Error fetching works for {name}: {e}")
 
 
 if __name__ == "__main__":
