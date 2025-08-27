@@ -10,4 +10,7 @@ researchers:
     openalex_id: A5000018975
   - name: Aerith Netzer
     orcid: https://orcid.org/0009-0004-0847-4849
-    openalex_id: 
+    openalex_id:
+  - name: Aihan Liu
+    orcid: https://orcid.org/0009-0005-8368-8983
+    openalex_id: A5050896969
