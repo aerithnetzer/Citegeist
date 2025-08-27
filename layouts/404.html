@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Page Not Found</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f9f9f9;
+      font-family: system-ui, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      font-size: 1.25rem;
+      margin-bottom: 2em;
+    }
+
+    .cat-wrapper {
+      width: 400px;
+      /* fixed width */
+      height: 300px;
+      /* fixed height */
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cat-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* crops to fill box while keeping aspect ratio */
+    }
+
+    a {
+      margin-top: 2em;
+      display: inline-block;
+      padding: 0.75em 1.5em;
+      background: #333;
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    a:hover {
+      background: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>404</h1>
+  <p>Oops! The page you’re looking for doesn’t exist.</p>
+  <div class="cat-wrapper">
+    <img id="cat-pic" src="" alt="A random cat">
+  </div>
+  <a href="{{ " /" | relURL }}">Go Home</a>
+
+  <script>
+    const catImages = [
+      "/images/cat1.jpg",
+      "/images/cat2.jpg",
+      "/images/cat3.jpg",
+      "/images/cat4.jpg",
+      "/images/cat5.jpg"
+    ];
+    const randomCat = catImages[Math.floor(Math.random() * catImages.length)];
+    document.getElementById("cat-pic").src = randomCat;
+  </script>
+</body>
+
+</html>
