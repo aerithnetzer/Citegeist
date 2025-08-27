@@ -1,5 +1,7 @@
 {{ define "main" }}
 {{ partial "head.html" .}}
+{{ partial "header.html" .}}
+<h1 class="author-title"> {{ .Params.name }}</h1>
 <div style="display: flex; align-items: flex-start; gap: 2rem;">
   <div
     style="min-width: 180px; max-width: 220px; background: #f5f5f5; border-radius: 12px; padding: 1rem; text-align: center;">
