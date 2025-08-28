@@ -3,8 +3,7 @@ layout: author-profile
 slug: basia-kapolka
 name: Basia Kapolka
 openalex_id: A5017412278
-bio: Basia Kapolka is the Digital Humanities Librarian for the research team. If they
-  were a cat I think they would be a Toyger cat.
+bio: Basia Kapolka is the Digital Humanities Librarian for the research team.
 recent_works:
 - title: 'Research Guides: Library AV and Tech Equipment: Terms of Use'
   publication_date: '2018-07-13'

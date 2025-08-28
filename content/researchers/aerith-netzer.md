@@ -4,7 +4,7 @@ slug: aerith-netzer
 name: Aerith Netzer
 openalex_id: null
 bio: Aerith Netzer is the Digital Publishing and Repository Librarian for the research
-  team. If I was a cat I think I would be a York Chocolate cat.
+  team.
 recent_works:
 - title: 'Large Language Models for Machine-Readable Citation Data: Towards an Automated
     Metadata Curation Pipeline for Scholarly Journals'
@@ -17,5 +17,3 @@ recent_works:
   openalex_id: ''
   slug: aerith-netzer
 ---
-
-Aerith Netzer is the Digital Publishing and Repository Librarian at Northwestern University Libraries. She works in data science, web development, and high-performance computing for the humanities. In her free time, she hangs out with her cat Auggie.

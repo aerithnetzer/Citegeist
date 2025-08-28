@@ -3,8 +3,7 @@ layout: author-profile
 slug: kelsey-rydland
 name: Kelsey Rydland
 openalex_id: A5004787361
-bio: Kelsey Rydland is the head of Academic Innovation and Digital Scholarship? If
-  he was a cat I think he would be a Russian Blue cat.
+bio: Kelsey Rydland is the head of the Digital Scholarship research team.
 recent_works:
 - title: Area Poverty and Adverse Birth Outcomes
   publication_date: '2024-12-12'

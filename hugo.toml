@@ -22,11 +22,11 @@ name = "The Cool Zone"
 url = "/coauthors/"
 weight = 4
 
-# [[menu.main]]
-# name = "Publications"
-# url = "/publications/"
-# weight = 5
-#
+[[menu.main]]
+name = "Projects"
+url = "/projects/"
+weight = 5
+
 # [[menu.main]]
 # name = "Blog"
 # url = "/blog/"

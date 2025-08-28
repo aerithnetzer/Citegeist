@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{{ partial "head.html" .}}
+{{ partial "header.html" .}}
+
+<h1 class="projects-title">{{ .Params.Title }}</h1>
+<div class="projects-grid">
+  {{ range .Params.projects }}
+  <div class="project-card">
+    <h2 class="project-title">{{ .title }}</h2>
+    <p>{{ .description }}</p>
+    <p><a href="{{ .link }}">Project Link</a></p>
+  </div>
+  {{ end }}
+</div>
